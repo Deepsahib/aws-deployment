@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
+import { BASE_URL } from './constant';
 
 export default function App() {
   const [message, setMessage] = useState('loading...');
 
   useEffect(() => {
-    fetch('http://localhost:3000')
+    fetch(BASE_URL)
       .then((response) => response.text())
       .then((text) => setMessage(text))
       .catch(() => setMessage('failed to load'));
